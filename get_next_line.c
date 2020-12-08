@@ -7,6 +7,8 @@ int		get_next_line(int fd, char **line)
 	static char		buff[BUFFER_SIZE + 1];
 
 	*line = ft_addington(0, buff);
+	if (bufferfix(buff))
+		return (1);
 	ft_bzero(buff, BUFFER_SIZE + 1);
 	len = read(fd, buff, BUFFER_SIZE);
 	while (len >= 0)
