@@ -7,11 +7,12 @@ int		get_next_line(int fd, char **line)
 	static char		buff[BUFFER_SIZE + 1];
 
 	*line = ft_addington(0, buff);
+	if (!(*line))
+		return (-1);
 	if (bufferfix(buff))
 		return (1);
-	ft_bzero(buff, BUFFER_SIZE + 1); //off for debugging with large buffers, does make a difference with medium BUFFER_SIZE!
 	len = read(fd, buff, BUFFER_SIZE);
-
+	buff[len] = 0;
 	while (len > 0)
 	{
 		*line = ft_addington(*line, buff);
@@ -19,15 +20,8 @@ int		get_next_line(int fd, char **line)
 			return (1);
 		if (!(*line))
 			return (-1);
-		// if (len < BUFFER_SIZE)
-		// 	return (0);
-		// if (ft_strclen(buff, '\n') < BUFFER_SIZE)
-		// {
-		// 	bufferfix(buff);
-		// 	return (1);
-		// }
-		ft_bzero(buff, BUFFER_SIZE);
 		len = read(fd, buff, BUFFER_SIZE);
+		buff[len] = 0;
 	}
 	if (!len)
 		return (0);

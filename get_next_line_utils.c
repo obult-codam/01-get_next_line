@@ -6,7 +6,7 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 23:45:37 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/09 13:09:26 by oswin         ########   odam.nl         */
+/*   Updated: 2020/12/09 20:01:03 by oswin         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,8 @@ int		bufferfix(char *buff)
 {
 	char	*temp;
 	int		i;
-	int		s;
 
 	i = 0;
-	s = 0;
 	temp = buff;
 	while (*temp != '\n' && *temp)
 		temp++;
@@ -74,19 +72,8 @@ int		bufferfix(char *buff)
 	while (temp[i])
 	{
 		buff[i] = temp[i];
-		if (buff[i] == '\n')
-			s = 1;
 		i++;
 	}
 	buff[i] = 0;
 	return (1);
-}
-
-void	ft_bzero(void *s, int n)
-{
-	while (n)
-	{
-		n--;
-		((char *)s)[n] = 0;
-	}
 }
