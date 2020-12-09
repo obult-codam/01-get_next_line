@@ -9,11 +9,15 @@ int		get_next_line(int fd, char **line)
 	*line = ft_addington(0, buff);
 	if (bufferfix(buff))
 		return (1);
-	ft_bzero(buff, BUFFER_SIZE + 1);
+	//ft_bzero(buff, BUFFER_SIZE + 1); //off for debugging with large buffers
 	len = read(fd, buff, BUFFER_SIZE);
+	if (!len)
+		return (0);
 	while (len >= 0)
 	{
 		*line = ft_addington(*line, buff);
+		if (bufferfix(buff) && len < BUFFER_SIZE)		//helps with large buffer messes with small buffer
+			return (1);
 		if (!(*line))
 			return (-1);
 		if (len < BUFFER_SIZE)

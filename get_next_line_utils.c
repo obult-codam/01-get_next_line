@@ -6,7 +6,7 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 23:45:37 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/08 20:51:01 by oswin         ########   odam.nl         */
+/*   Updated: 2020/12/09 13:09:26 by oswin         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ char	*ft_addington(char *og, char *add)
 	return (temp);
 }
 
-//"on" "e\n"
-
 int		bufferfix(char *buff)
 {
 	char	*temp;
@@ -71,6 +69,8 @@ int		bufferfix(char *buff)
 		temp++;
 	if (*temp == '\n')
 		temp = temp + 1;
+	else
+		return (0);
 	while (temp[i])
 	{
 		buff[i] = temp[i];
@@ -79,7 +79,7 @@ int		bufferfix(char *buff)
 		i++;
 	}
 	buff[i] = 0;
-	return (s);
+	return (1);
 }
 
 void	ft_bzero(void *s, int n)
