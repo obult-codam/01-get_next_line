@@ -6,7 +6,7 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 23:45:37 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/09 20:01:03 by oswin         ########   odam.nl         */
+/*   Updated: 2020/12/10 15:58:43 by oswin         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ char	*ft_addington(char *og, char *add)
 {
 	char	*temp;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
 	temp = malloc(ft_strclen(og, '\n') + ft_strclen(add, '\n') + 1);
 	if (!temp)
 	{
@@ -47,13 +45,21 @@ char	*ft_addington(char *og, char *add)
 		}
 		free(og);
 	}
-	while (add[j] && add[j] != '\n')
-	{
-		temp[i + j] = add[j];
-		j++;
-	}
-	temp[i + j] = 0;
+	os_cpy(&temp[i], add);
 	return (temp);
+}
+
+void	os_cpy(char *dst, char *src)
+{
+	int		i;
+
+	i = 0;
+	while (src[i] && src[i] != '\n')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = 0;
 }
 
 int		bufferfix(char *buff)
