@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.c                                    :+:    :+:            */
+/*   get_next_line_bonus.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/11 16:08:40 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/11 16:12:18 by oswin         ########   odam.nl         */
+/*   Created: 2020/12/09 15:49:41 by oswin         #+#    #+#                 */
+/*   Updated: 2020/12/11 19:22:41 by oswin         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,27 @@
 int		get_next_line(int fd, char **line)
 {
 	int	len;
-	static char		buff[BUFFER_SIZE + 1];
+	static char		*buff[MAX_FD];
 
-	*line = ft_addington(0, buff);
+	buff[fd] = malloc(BUFFER_SIZE);
+	if (!buff[fd])
+		return(-1);
+	*line = ft_addington(0, buff[fd]);
 	if (!(*line))
 		return (-1);
-	if (bufferfix(buff))
+	if (bufferfix(buff[fd]))
 		return (1);
-	len = read(fd, buff, BUFFER_SIZE);
-	buff[len] = 0;
+	len = read(fd, buff[fd], BUFFER_SIZE);
+	buff[fd][len] = 0;
 	while (len > 0)
 	{
-		*line = ft_addington(*line, buff);
+		*line = ft_addington(*line, buff[fd]);
 		if (!(*line))
 			return (-1);
-		if (bufferfix(buff))
+		if (bufferfix(buff[fd]))
 			return (1);
-		len = read(fd, buff, BUFFER_SIZE);
-		buff[len] = 0;
+		len = read(fd, buff[fd], BUFFER_SIZE);
+		buff[fd][len] = 0;
 	}
 	if (!len)
 		return (0);
