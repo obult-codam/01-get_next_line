@@ -6,11 +6,10 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/11 16:08:40 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/17 09:20:24 by obult         ########   odam.nl         */
+/*   Updated: 2020/12/17 09:44:18 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "get_next_line.h"
 
 int		get_next_line(int fd, char **line)

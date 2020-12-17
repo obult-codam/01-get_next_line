@@ -6,15 +6,17 @@
 /*   By: obult <obult@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 15:36:50 by obult         #+#    #+#                 */
-/*   Updated: 2020/12/17 09:21:38 by obult         ########   odam.nl         */
+/*   Updated: 2020/12/17 09:50:39 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
 # endif
+
 # include <stdlib.h>
 
 typedef struct	s_gnlist

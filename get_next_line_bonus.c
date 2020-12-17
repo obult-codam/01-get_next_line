@@ -6,7 +6,7 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/09 15:49:41 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/17 09:22:22 by obult         ########   odam.nl         */
+/*   Updated: 2020/12/17 09:43:42 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	remove_fd(int fd, t_gnlist **blst)
 void	clear_lst(t_gnlist **lst)
 {
 	t_gnlist	*clear;
-	
+
 	while (*lst)
 	{
 		clear = *lst;
@@ -90,7 +90,7 @@ char	*search_buff_fd(int fd, t_gnlist **blst)
 	if (!tmp->buff)
 	{
 		free(tmp);
-		return (0);		
+		return (0);
 	}
 	while (i < BUFFER_SIZE)
 	{
