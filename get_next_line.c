@@ -6,7 +6,7 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/11 16:08:40 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/11 16:12:18 by oswin         ########   odam.nl         */
+/*   Updated: 2020/12/16 21:19:34 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,16 @@
 
 int		get_next_line(int fd, char **line)
 {
-	int	len;
 	static char		buff[BUFFER_SIZE + 1];
+
+	if (!line)
+		return (-1);
+	return (get_next_lineb(fd, line, buff));
+}
+
+int		get_next_lineb(int fd, char **line, char *buff)
+{
+	int	len;
 
 	*line = ft_addington(0, buff);
 	if (!(*line))

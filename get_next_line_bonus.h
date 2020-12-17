@@ -6,7 +6,7 @@
 /*   By: obult <obult@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 15:36:50 by obult         #+#    #+#                 */
-/*   Updated: 2020/12/14 16:36:25 by obult         ########   odam.nl         */
+/*   Updated: 2020/12/16 21:20:18 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,24 @@
 #  define BUFFER_SIZE 10
 # endif
 # include <stdlib.h>
-# define MAX_FD 50
 
-int		ft_strclen(char *s, char c);
-char	*ft_addington(char *og, char *add);
-int		get_next_line(int fd, char **line);
-int		bufferfix(char *buff);
-void	os_cpy(char *dst, char *src);
+typedef struct	s_gnlist
+{
+	int					fd;
+	char				*buff;
+	struct s_gnlist		*next;
+}				t_gnlist;
+
+int				ft_strclen(char *s, char c);
+char			*ft_addington(char *og, char *add);
+int				get_next_line(int fd, char **line);
+int				bufferfix(char *buff);
+void			os_cpy(char *dst, char *src);
+
+char			*lookup_fd(int fd, t_gnlist *blst);
+char			*search_buff_fd(int fd, t_gnlist **blst);
+void			clear_lst(t_gnlist **lst);
+void			remove_fd(int fd, t_gnlist **blst);
+int				get_next_lineb(int fd, char **line, char *buff);
 
 #endif

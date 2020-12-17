@@ -6,7 +6,7 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/30 18:08:14 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/10 16:02:27 by oswin         ########   odam.nl         */
+/*   Updated: 2020/12/16 21:19:55 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ char	*ft_addington(char *og, char *add);
 int		get_next_line(int fd, char **line);
 int		bufferfix(char *buff);
 void	os_cpy(char *dst, char *src);
+int		get_next_lineb(int fd, char **line, char *buff);
 
 #endif

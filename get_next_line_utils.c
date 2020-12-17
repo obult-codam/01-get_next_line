@@ -6,10 +6,11 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 23:45:37 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/14 16:35:17 by obult         ########   odam.nl         */
+/*   Updated: 2020/12/16 21:09:30 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
 #include <stdlib.h>
 
 int		ft_strclen(char *s, char c)
