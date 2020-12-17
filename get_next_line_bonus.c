@@ -6,7 +6,7 @@
 /*   By: oswin <oswin@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/09 15:49:41 by oswin         #+#    #+#                 */
-/*   Updated: 2020/12/16 21:24:07 by obult         ########   odam.nl         */
+/*   Updated: 2020/12/17 09:22:22 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	remove_fd(int fd, t_gnlist **blst)
 	pre = *blst;
 	if (pre->fd == fd)
 	{
-		free(pre->buff);
 		*blst = pre->next;
+		free(pre->buff);
 		free(pre);
 		return ;
 	}
@@ -50,8 +50,8 @@ void	remove_fd(int fd, t_gnlist **blst)
 	{
 		if (cur->fd == fd)
 		{
-			free(cur->buff);
 			pre->next = cur->next;
+			free(cur->buff);
 			free(cur);
 			return ;
 		}

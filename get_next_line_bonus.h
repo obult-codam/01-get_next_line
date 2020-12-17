@@ -6,7 +6,7 @@
 /*   By: obult <obult@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/14 15:36:50 by obult         #+#    #+#                 */
-/*   Updated: 2020/12/16 21:20:18 by obult         ########   odam.nl         */
+/*   Updated: 2020/12/17 09:21:38 by obult         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 typedef struct	s_gnlist
 {
 	int					fd;
-	char				*buff;
 	struct s_gnlist		*next;
+	char				*buff;
 }				t_gnlist;
 
 int				ft_strclen(char *s, char c);
